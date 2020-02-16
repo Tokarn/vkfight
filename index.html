@@ -14,8 +14,8 @@
     <script type="text/javascript">
 
        var status = false;
-
-       var getUserName = function () { VK.api("users.get", {"user_ids" : "336716878"}, function(data) { console.log(data); }); };
+       var userFullName;
+       var getUserName = function () { VK.api("users.get", {}, function(data) { userFullName = data.response.first_name + " " + data.response.last_name; }); };
 
        VK.init(function() {
        status = true;
@@ -24,6 +24,8 @@
        }, function() {
        console.log("API initialization failed");
        }, '5.103');
+
+       unityInstance.SendMessage("WelcomeText (TMP)", "SetUserName", "userFullName");
     </script>
     <div id="unityContainer" style="width: 817px; height: 595px; margin: auto"></div>
   </body>
