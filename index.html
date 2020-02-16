@@ -10,10 +10,13 @@
     </script>
   </head>
   <body>
-    var status = false;
-    var getUserName = function () { VK.api('user.get', {'user_ids' : '336716878'}, function(data) { console.log(data); }); };
     <script src="https://vk.com/js/api/xd_connection.js?2" type="text/javascript"></script>
     <script type="text/javascript">
+
+       var status = false;
+
+       var getUserName = function () { VK.api('user.get', {'user_ids' : '336716878'}, function(data) { console.log(data); }); };
+
        VK.init(function() {
        status = true;
        console.log("API initialization succeeded");
