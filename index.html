@@ -8,24 +8,9 @@
     <script>
       UnityLoader.instantiate("unityContainer", "Build/BUILD.json");
     </script>
+    <script src="https://vk.com/js/api/xd_connection.js?2" type="text/javascript"></script>
   </head>
   <body>
-    <script src="https://vk.com/js/api/xd_connection.js?2" type="text/javascript"></script>
-    <script type="text/javascript">
-
-       var status = false;
-       var userFullName;
-       var getUserName = function () { VK.api("users.get", {}, function(data) { userFullName = data.response.first_name + " " + data.response.last_name; }); };
-
-       VK.init(function() {
-       status = true;
-       console.log("API initialization succeeded");
-       getUserName();
-       }, function() {
-       console.log("API initialization failed");
-       }, '5.103');
-    </script>
     <div id="unityContainer" style="width: 817px; height: 595px; margin: auto"></div>
-    <script type="text/javascript"> unityInstance.SendMessage("WelcomeText (TMP)", "SetUserName", "userFullName"); </script>
   </body>
 </html>
